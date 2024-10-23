@@ -1,7 +1,11 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.guardsquare.appsweep") version "latest.release"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
 }
 
 android {
@@ -36,6 +40,14 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+}
+ktlint {
+    android = true
+    ignoreFailures = false
+    reporters {
+        reporter(ReporterType.PLAIN)
+        reporter(ReporterType.CHECKSTYLE)
     }
 }
 

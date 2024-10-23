@@ -1,6 +1,7 @@
 package com.arun.androidcicd
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidCICDTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Log.d("TAG", "onCreate: App sweep integrated")
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
