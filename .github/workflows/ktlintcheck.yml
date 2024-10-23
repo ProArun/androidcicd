@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
       - name: Grant execute permission for gradlew
@@ -27,18 +27,18 @@ jobs:
       - name: Run Ktlint
         run: ./gradlew ktlint
       - name: Upload Ktlint report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Ktlint Report
           path: app/build/reports/ktlint
       - name: Publish JUnit test results
         if: always()
-        uses: junit-team/junit-report-builder@v2
+        uses: junit-team/junit-report-builder@v4
         with:
           report-files: '**/TEST-*.xml'
       - name: Publish HTML reports
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: HTML Reports
           path: app/build/reports/tests/testDebugUnitTest/index.html
